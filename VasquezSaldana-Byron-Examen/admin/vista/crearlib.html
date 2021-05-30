@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    
+    <style type="text/css">
+        
+        @font-face {
+            font-family: Fondamento;
+            src: url(../letras/Architects_Daughter/ArchitectsDaughter-Regular.ttf);
+        }
+
+        * {
+            font-family: 'Fondamento';
+            color: white;
+        }
+    </style>
+    <link href="../../css/estilos.css" rel="stylesheet" />
+    
+
+</head>
+
+<body>
+    <h1><center> Formulario Creación Libros</center></h1>
+    <form class="formu" id="formulario01" method="POST" action="../controladores/registrarlib.php">
+        <br>
+        <label for="nombre">Nombre (*)</label>
+        <input type="text" id="nombre" name="nombre" value="" placeholder="Ingrese nombre del libro"/>        
+        <br><br>
+
+        <label for="isbn">ISBN (*)</label>
+        <input type="text" id="isbn" name="isbn" value="" placeholder="Ingrese el ISBN del libro max 13 dig" />
+        
+        <br>
+        <label for="paginas">Número Paginas (*)</label>
+        <input type="text" id="paginas" name="paginas" value="" placeholder="Ingrese número paginas" />        
+        <br>        
+
+        <input class="boton" type="submit" id="crear" name="crear" value="Aceptar" />
+        <input class="boton" type="reset" id="cancelar" onclick="location.href='index.html'" name="cancelar" value="Cancelar" />
+        <br><br>
+    </form>
+    <br>
+    
+</body>
+
+
+</html>

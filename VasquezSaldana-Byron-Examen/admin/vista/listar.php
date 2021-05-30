@@ -45,8 +45,8 @@
                 echo " <td>" . $row['lib_isbn'] . "</td>";
                 echo " <td>" . $row['lib_paginas'] . "</td>";
 
-                $sql3 = "SELECT * FROM capitulos where cap_lib_id =" . $row['lib_codigo'] . " ";
-                $result3 = $conn->query($sql3);
+                $sql2 = "SELECT * FROM capitulos where cap_lib_id =" . $row['lib_codigo'] . " ";
+                $result3 = $conn->query($sql2);
                 if ($result3->num_rows > 0) {
 
                     while ($row3 = $result3->fetch_assoc()) {
@@ -55,8 +55,8 @@
                         echo " <td>" . $row3['cap_numero'] . "</td>";
                         echo " <td>" . $row3['cap_titulo'] . "</td>";
 
-                        $sql2 = "SELECT * FROM autores where aut_codigo =" . $row3['cap_aut_id'] . " ";
-                        $result2 = $conn->query($sql2);
+                        $sql3 = "SELECT * FROM autores where aut_codigo =" . $row3['cap_aut_id'] . " ";
+                        $result2 = $conn->query($sql3);
 
                         if ($result2->num_rows > 0) {
                             while ($row2 = $result2->fetch_assoc()) {

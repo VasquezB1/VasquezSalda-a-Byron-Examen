@@ -19,7 +19,7 @@
 
         <br><br><br><br>
     </header>
-    
+
     <center>
         <h2>AÑADIR DATOS DEL LIBRO</h2>
     </center>
@@ -28,11 +28,11 @@
         <tr>
             <th>Nombre</th>
             <th>ISBN</th>
-            <th>Número Paginas</th>           
+            <th>Número Paginas</th>
         </tr>
         <?php
         include '../../config/conexionBD.php';
-       // $codigo = $_GET["codigo"];
+        // $codigo = $_GET["codigo"];
         $sql = "SELECT * FROM libro ";
         $result = $conn->query($sql);
 
@@ -43,8 +43,8 @@
                 echo "<tr>";
                 echo " <td>" . $row["lib_nombre"] . "</td>";
                 echo " <td>" . $row['lib_isbn'] . "</td>";
-                echo " <td>" . $row['lib_paginas'] . "</td>";    
-                echo " <td> <a href='agregarcap.php?codigo=" . $row['lib_codigo'] . "'>Agregar Capitulo</a> </td>";                        
+                echo " <td>" . $row['lib_paginas'] . "</td>";
+                echo " <td> <a href='agregarcap.php?codigo=" . $row['lib_codigo'] . "'>Agregar Capitulo</a> </td>";
                 echo "</tr>";
             }
         } else {
@@ -55,16 +55,16 @@
         $conn->close();
         ?>
 
-        
-        <br>   <br>
+
+        <br> <br>
     </table>
 
     <footer>
         Byron Simon Vasquez Saldaña&#8226; Universidad Politecnica Salesiana, <a href="https://mail.google.com/mail/u/0/#inbox">bvasquezs@est.ups.edu.ec</a> &#8226;
-        <a href=”0987815997”> 0987815997 </a><br>        
+        <a href=”0987815997”> 0987815997 </a><br>
         <br>© Todos los derechos reservados<br>
 
-        
+
         <br>
 
     </footer>

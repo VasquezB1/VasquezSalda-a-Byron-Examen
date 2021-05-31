@@ -32,11 +32,6 @@
         }
     }
 
-
-
-
-
-
     //cerrar la base de datos
     $conn->close();
     echo "<a href='../vista/agregarcap.php?codigo'>Regresar</a>";

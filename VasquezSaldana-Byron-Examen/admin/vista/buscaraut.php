@@ -1,65 +1,50 @@
-<?php
-//incluir conexión a la base de datos
-include "../../../config/conexionBD.php";
-$nombre = $_GET['nombre'];
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="../../css/estilos1.css" rel="stylesheet" />
+    <link href="../../css/indexadmin.css" rel="stylesheet" />
+    <script type="text/javascript" src="../../js/buscar.js"></script>
+    <meta charset="UTF-8">
+    <title>Agregar Capitulos</title>
+
+    <style type="text/css">
+
+    </style>
+
+</head>
+
+<body>
+    <header class="enc1">
+        <img class="logo" src="../../images/LOGO UPS -01.png" alt="Logo UPS" />
+        <img class="icono" src="../../images/usuario.png" alt="Usuario" />
+        <img class="icono" src="../../images/charla.png" alt="Mensajes" />
+        <img class="icono" src="../../images/mas.png" alt="Mas" />
+
+        <br><br><br><br>
+    </header>
 
 
-$sql = "SELECT * FROM libro WHERE aut_nombre=$nombre";
-$result = $conn->query($sql);
+    <h2>Buscar Libro</h2>
+    <form class="buscar" onsubmit="return buscarxpNombre()">
+        <input type="text" id="nombre" name="nombre" value="">
+        <input class="boton" type="button" id="buscar" name="buscar" value="Buscar" onclick="buscarxpNombre()">
+    </form>
+    <br><br>
+    <div id="informacion"><b></b></div>
+    <br><br>
 
 
-if ($result->num_rows > 0) {
+    <footer>
+        Byron Simon Vasquez Saldaña&#8226; Universidad Politecnica Salesiana, <a href="https://mail.google.com/mail/u/0/#inbox">bvasquezs@est.ups.edu.ec</a> &#8226;
+        <a href=”0987815997”> 0987815997 </a><br>
 
-    while ($row = $result->fetch_assoc()) {
-        echo "<tr>";
-        echo " <td>" . $row["lib_nombre"] . "</td>";
-        echo " <td>" . $row['lib_isbn'] . "</td>";
-        echo " <td>" . $row['lib_paginas'] . "</td>";
-        echo " <td> <a href='agregarcap.php?codigo=" . $row['lib_codigo'] . "'>Agregar Capitulo</a> </td>";
-        echo "</tr>";
-    }
-} else {
-    echo "<tr>";
-    echo " <td colspan='7'> No existen usuarios registrados </td>";
-    echo "</tr>";
-}
-$conn->close();
+        <br>© Todos los derechos reservados<br>
 
-//cambiar la consulta para puede buscar por ocurrencias de letras
-$result = $conn->query($sql);
-echo " <table style='width:100%'>
- <tr>
- <th>Cedula</th>
- <th>Nombres</th> 
- <th>Apellidos</th>
- <th>Dirección</th>
- <th>Correo</th>
- <th>Telefono</th>
- <th>Tipo</th>
- <th>Operadora</th>
- <th></th>
- <th></th>
- <th></th> 
- </tr>";
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
 
-        echo "<tr>";
-        echo " <td>" . $row['usu_cedula'] . "</td>";
-        echo " <td>" . $row['usu_nombres'] . "</td>";
-        echo " <td>" . $row['usu_apellidos'] . "</td>";
-        echo " <td>" . $row['usu_direccion'] . "</td>";
-        echo " <td>" . $row['usu_correo'] . "</td>";
-        echo " <td>" . $row['tele_numero'] . "</td>";
-        echo " <td>" . $row['tele_tipo'] . "</td>";
-        echo " <td>" . $row['tele_operadora'] . "</td>";
+        <br>
 
-        echo "</tr>";
-    }
-} else {
-    echo "<tr>";
-    echo " <td colspan='7'> No existen usuarios registradas en el sistema </td>";
-    echo "</tr>";
-}
-echo "</table>";
-$conn->close();
+    </footer>
+</body>
+
+</html>

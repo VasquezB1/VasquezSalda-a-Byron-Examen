@@ -144,14 +144,14 @@ h2 {
     text-align: center;
 }
 
-.volver{
+.volver {
     font-size: 25px;
 }
 
 .buscar {
     display: flex;
-
-  color: black ;
+    margin-left: 30%;
+    color: black;
     width: 40%;
     flex-direction: row;
     box-shadow:
@@ -163,13 +163,17 @@ h2 {
         6px 6px 0 #1d913a;
 }
 
+#informacion {
+    text-align: center;
+}
+
 .buscar>input[type=text],
-.buscar>button  {
+.buscar>button {
     color: black;
     display: block;
     font: 1.2em 'Montserrat Alternates';
-    
- 
+
+
 }
 
 .buscar>input[type=text] {
@@ -182,14 +186,14 @@ h2 {
 .buscar>button {
     padding: 0.6em 0.8em;
     background-color: rgb(26, 188, 156);
-    color: black ;
+    color: black;
     border: none;
 }
 
-.boton{
-   color: black;
-   text-align: center;
-   font-size: 20px;
+.boton {
+    color: black;
+    text-align: center;
+    font-size: 20px;
 }
 
 

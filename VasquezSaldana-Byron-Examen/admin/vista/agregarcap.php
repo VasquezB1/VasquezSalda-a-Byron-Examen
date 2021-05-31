@@ -4,11 +4,12 @@
 <head>
     <link href="../../css/estilos1.css" rel="stylesheet" />
     <link href="../../css/indexadmin.css" rel="stylesheet" />
+    <script type="text/javascript" src="../../js/buscarautor.js"></script>
     <meta charset="UTF-8">
     <title>Agregar Capitulos</title>
-    
+
     <style type="text/css">
-       
+
     </style>
 
 </head>
@@ -22,7 +23,17 @@
 
         <br><br><br><br>
     </header>
-    
+
+
+    <h2>Buscar Autor</h2>
+    <form class="buscar" onsubmit="return buscarnombre()">
+        <input type="text" id="nombre" name="nombre" value="">
+        <input class="boton" type="button" id="buscar" name="buscar" value="Buscar" onclick="buscarnombre()">
+    </form>
+    <br><br>
+    <div id="informacion"><b></b></div>
+    <br><br>
+
     <?php
     $codigo = $_GET["codigo"];
     ?>
@@ -30,16 +41,16 @@
 
         <input type="hidden" id="codigo" name="codigo" value="<?php echo $codigo ?>" />
         <label for="numero">Número (*)</label>
-        <input type="text" id="numero" name="numero" value="" placeholder="Ingrese el número de capitulo"/>
-        
+        <input type="text" id="numero" name="numero" value="" placeholder="Ingrese el número de capitulo" />
+
         <br><br>
 
         <label for="titulo">Titulo (*)</label>
-        <input type="text" id="titulo" name="titulo" value="" placeholder="Ingrese el titulo" />  
+        <input type="text" id="titulo" name="titulo" value="" placeholder="Ingrese el titulo" />
         <br><br>
         <label for="autor">Autor (*)</label>
-        <input type="text" id="autor" name="autor" value="" placeholder="Ingrese el id del autor" />         
-    
+        <input type="text" id="autor" name="autor" value="" placeholder="Ingrese el id del autor" />
+
         <br><br>
 
 
@@ -48,48 +59,14 @@
         <br><br>
     </form>
 
-    <table style="width:100%">
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>   
-            <th>Nacionalidad</th>     
-        </tr>
-        <?php
-        include '../../config/conexionBD.php';
-        //$codigo2 = $_GET["codigo2"];
-        $sql = "SELECT * FROM autores ";
-        $result = $conn->query($sql);
-
-
-        if ($result->num_rows > 0) {
-
-            while ($row = $result->fetch_assoc()) {
-                echo "<tr>";
-                echo " <td>" . $row["aut_codigo"] . "</td>";
-                echo " <td>" . $row['aut_nombre'] . "</td>";
-                echo " <td>" . $row['aut_nacionalidad'] . "</td>";    
-                                       
-                echo "</tr>";
-            }
-        } else {
-            echo "<tr>";
-            echo " <td colspan='7'> No existen usuarios registrados </td>";
-            echo "</tr>";
-        }
-        $conn->close();
-        ?>
-
-        
-        <br>   <br>
-    </table>
 
     <footer>
         Byron Simon Vasquez Saldaña&#8226; Universidad Politecnica Salesiana, <a href="https://mail.google.com/mail/u/0/#inbox">bvasquezs@est.ups.edu.ec</a> &#8226;
         <a href=”0987815997”> 0987815997 </a><br>
-        
+
         <br>© Todos los derechos reservados<br>
 
-        
+
         <br>
 
     </footer>

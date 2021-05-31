@@ -1,5 +1,8 @@
-function buscarxpNombre() {
-    var nombre = document.getElementById("nombre").value;
+function buscarnombre() {
+    
+    var nombre = document.getElementById("nombre");  
+    console.log("nombre " + nombre.value)
+
     if (nombre == "") {
     document.getElementById("informacion").innerHTML = ""; 
     } else { 
@@ -12,12 +15,12 @@ function buscarxpNombre() {
     }
     xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-    //alert("llegue");
+    
     document.getElementById("informacion").innerHTML = this.responseText;
     }
     };
-    xmlhttp.open("GET","../../admin/controladores/buscaraut.php?nombre="+nombre,true);
+    xmlhttp.open("GET","../../admin/controladores/buscarautor.php?nombre="+nombre.value,true);
     xmlhttp.send();
     }
     return false;
-}
+} 

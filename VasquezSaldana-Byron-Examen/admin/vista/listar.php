@@ -37,46 +37,34 @@
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-
             while ($row = $result->fetch_assoc()) {
-                echo "<tr>";
-
-                echo " <td>" . $row['lib_nombre'] . "</td>";
-                echo " <td>" . $row['lib_isbn'] . "</td>";
-                echo " <td>" . $row['lib_paginas'] . "</td>";
-
                 $sql2 = "SELECT * FROM capitulos where cap_lib_id =" . $row['lib_codigo'] . " ";
                 $result3 = $conn->query($sql2);
                 if ($result3->num_rows > 0) {
 
                     while ($row3 = $result3->fetch_assoc()) {
-
-
-                        echo " <td>" . $row3['cap_numero'] . "</td>";
-                        echo " <td>" . $row3['cap_titulo'] . "</td>";
-
                         $sql3 = "SELECT * FROM autores where aut_codigo =" . $row3['cap_aut_id'] . " ";
                         $result2 = $conn->query($sql3);
 
                         if ($result2->num_rows > 0) {
                             while ($row2 = $result2->fetch_assoc()) {
-
-                                echo " <td>" . $row2['aut_nombre'] . "</td>";
-                                echo " <td>" . $row2['aut_nacionalidad'] . "</td>";
+                                echo "<tr>";
+                                    echo " <td>" . $row['lib_nombre'] . "</td>";
+                                    echo " <td>" . $row['lib_isbn'] . "</td>";
+                                    echo " <td>" . $row['lib_paginas'] . "</td>";
+                                    echo " <td>" . $row3['cap_numero'] . "</td>";
+                                    echo " <td>" . $row3['cap_titulo'] . "</td>";
+                                    echo " <td>" . $row2['aut_nombre'] . "</td>";
+                                    echo " <td>" . $row2['aut_nacionalidad'] . "</td>";
+                                echo "</tr>";
                             }
                         }
-                        echo "</tr>";
-                        echo " <td></td>";
-                        echo " <td></td>";
-                        echo " <td></td>";
                     }
                 }
-
-                echo "</tr>";
             }
         } else {
             echo "<tr>";
-            echo " <td colspan='7'> No existen usuarios registradas en el sistema </td>";
+            echo " <td colspan='7'> No existen libros registradas en el sistema </td>";
             echo "</tr>";
         }
 
